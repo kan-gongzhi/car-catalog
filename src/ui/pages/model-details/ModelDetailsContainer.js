@@ -2,17 +2,26 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ModelDetails from './ModelDetails';
+import { getModelById } from '../../../selectors/models';
+import { getMakeById } from '../../../selectors/makes';
 
 class DetailContainer extends Component {
   render() {
-    return <ModelDetails id={this.props.match.params.id} />;
+    return <ModelDetails car={this.props.car} />;
   }
 }
 
 // connect to store
 /*************************************************************/
-export const mapStateToProps = () => {
-  return {};
+export const mapStateToProps = (
+  { models, makes },
+  { match: { params: { id } } }
+) => {
+  const model = getModelById(id)({ models }) || {};
+  const make = getMakeById(model.makeId)({ makes }) || {};
+  return {
+    car: { ...model, make: make.name }
+  };
 };
 
 export const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);

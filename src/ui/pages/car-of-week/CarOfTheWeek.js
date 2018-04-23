@@ -1,13 +1,18 @@
 import React from 'react';
 import { formattedMoney } from '../../../helpers/formatters';
+import CenteredContainer from '../../components/CenteredContainer/CenteredContainer';
 
-const CarOfTheWeek = ({ car = {} }) => (
-  <div>
-    {console.log(car)}
-    <div>{car.name}</div>
-    <div>{car.review}</div>
-    <div>{formattedMoney(car.price)}</div>
-  </div>
+const CarOfTheWeek = ({ car: { imageUrl, name, review, price } }) => (
+  <CenteredContainer>
+    <div>
+      <img src={imageUrl} />
+    </div>
+    <div>{name}</div>
+    <blockquote className={'Car-of-the-week__container'}>
+      <q>{review}</q>
+    </blockquote>
+    <div>{`$${formattedMoney(price)}`}</div>
+  </CenteredContainer>
 );
 
 export default CarOfTheWeek;
