@@ -39,7 +39,8 @@ const getRenderProps = (stage, props, state, methods = {}) => {
         handleMakesChange,
         handleModelsChange,
         handleClick: search,
-        hasSelectedMakeId: selectedModelId !== ''
+        hasSelectedMakeId: selectedMakeId !== '',
+        hasSelectedModelId: selectedModelId !== ''
       };
     case REDIRECT:
       return { selectedModelId };

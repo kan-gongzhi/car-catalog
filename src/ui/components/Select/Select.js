@@ -5,9 +5,14 @@ const Select = ({
   options,
   handleOnChange,
   placeholder = '',
-  className = ''
+  className = '',
+  disabled
 }) => (
-  <select onChange={handleOnChange} className={`Select ${className}`}>
+  <select
+    onChange={handleOnChange}
+    className={`Select ${className}`}
+    disabled={disabled}
+  >
     <option value="">{placeholder}</option>
     {options.map(({ id, name }) => (
       <option value={id} key={id}>

@@ -2,7 +2,9 @@ import React from 'react';
 import Select from '../../components/Select/Select';
 import './Search.css';
 
-const Row = ({ children, className }) => <div className={`clearfix ${className}`}>{children}</div>;
+const Row = ({ children, className }) => (
+  <div className={`clearfix ${className}`}>{children}</div>
+);
 const Col = ({ children, className }) => (
   <div className={`sm-col sm-col-6 Search__Col ${className}`}>{children}</div>
 );
@@ -13,7 +15,8 @@ const Search = ({
   handleClick,
   makes = [],
   models = [],
-  hasSelectedMakeId
+  hasSelectedMakeId,
+  hasSelectedModelId
 }) => (
   <Row className={'Search'}>
     <Row>
@@ -29,6 +32,7 @@ const Search = ({
           options={models}
           handleOnChange={handleModelsChange}
           placeholder={'Choose model'}
+          disabled={hasSelectedMakeId === false}
         />
       </Col>
     </Row>
@@ -37,7 +41,7 @@ const Search = ({
         <button
           onClick={handleClick}
           className={'Search__Button right'}
-          disabled={hasSelectedMakeId === false}
+          disabled={hasSelectedModelId === false}
         >
           Search
         </button>
