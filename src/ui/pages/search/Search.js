@@ -2,6 +2,11 @@ import React from 'react';
 import Select from '../../components/Select/Select';
 import './Search.css';
 
+const Row = ({ children, className }) => <div className={`clearfix ${className}`}>{children}</div>;
+const Col = ({ children, className }) => (
+  <div className={`sm-col sm-col-6 Search__Col ${className}`}>{children}</div>
+);
+
 const Search = ({
   handleMakesChange,
   handleModelsChange,
@@ -10,25 +15,35 @@ const Search = ({
   models = [],
   hasSelectedMakeId
 }) => (
-  <div>
-    <Select
-      options={makes}
-      handleOnChange={handleMakesChange}
-      placeholder={'Choose make'}
-    />
-    <Select
-      options={models}
-      handleOnChange={handleModelsChange}
-      placeholder={'Choose model'}
-    />
-    <button
-      onClick={handleClick}
-      className={'Search__Button'}
-      disabled={hasSelectedMakeId === false}
-    >
-      Search
-    </button>
-  </div>
+  <Row className={'Search'}>
+    <Row>
+      <Col>
+        <Select
+          options={makes}
+          handleOnChange={handleMakesChange}
+          placeholder={'Choose make'}
+        />
+      </Col>
+      <Col>
+        <Select
+          options={models}
+          handleOnChange={handleModelsChange}
+          placeholder={'Choose model'}
+        />
+      </Col>
+    </Row>
+    <Row>
+      <Col className={'sm-col-12'}>
+        <button
+          onClick={handleClick}
+          className={'Search__Button right'}
+          disabled={hasSelectedMakeId === false}
+        >
+          Search
+        </button>
+      </Col>
+    </Row>
+  </Row>
 );
 
 export default Search;
