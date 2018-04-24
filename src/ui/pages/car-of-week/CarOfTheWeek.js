@@ -11,7 +11,7 @@ const CarOfTheWeek = ({ car: { imageUrl, name, review, price, makeName } }) => (
       <p>{`$${formattedMoney(price)}`}</p>
     </div>
     <blockquote className={'Car-of-the-week__container'}>
-      <q>{review}</q>
+      <q className={'Car-of-the-week__review'}>{review}</q>
     </blockquote>
   </Hero>
 );

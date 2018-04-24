@@ -5,4 +5,6 @@
 .App__Logo {
   height: auto;
   width: 100%;
-  max-width: 150px; }
+  max-width: 150px;
+  position: relative;
+  top: 6px; }

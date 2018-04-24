@@ -21,7 +21,11 @@ const Search = ({
       handleOnChange={handleModelsChange}
       placeholder={'Choose model'}
     />
-    <button onClick={handleClick} className={'Search__Button'} disabled={true}>
+    <button
+      onClick={handleClick}
+      className={'Search__Button'}
+      disabled={hasSelectedMakeId === false}
+    >
       Search
     </button>
   </div>

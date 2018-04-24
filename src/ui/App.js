@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import './App.css';
 import CarOfWeekContainer from './pages/car-of-week/CarOfTheWeekContainer';
 import SearchContainer from './pages/search/SearchContainer';
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App__Header flex items-center flex-wrap">
-          <img src={logo} alt="Logo" className={'App__Logo'} />
+          <Link to={'/'}><img src={logo} alt="Logo" className={'App__Logo'} /></Link>
           <Nav />
         </header>
         <main>

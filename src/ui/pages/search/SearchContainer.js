@@ -7,9 +7,9 @@ import { Redirect } from 'react-router-dom';
 /*************************************************************/
 const SEARCH = 'search';
 const REDIRECT = 'redirect';
-const updateSelectedMakeId = selectedMakeId => ({ selectedMakeId });
-const updateSelectedModelId = selectedModelId => ({ selectedModelId });
-const searchStage = () => ({ stage: SEARCH });
+const updateSelectedMakeId = selectedMakeId => () => ({ selectedMakeId });
+const updateSelectedModelId = selectedModelId => () => ({ selectedModelId });
+const resetSelectedModelId = () => ({ selectedModelId: '' });
 const redirectStage = () => ({ stage: REDIRECT });
 const getModels = (selectedMakeId, models) =>
   models.filter(model => model.makeId + '' === selectedMakeId);
@@ -26,6 +26,7 @@ const renderer = (stage, props) => {
 };
 
 const getRenderProps = (stage, props, state, methods = {}) => {
+  const { selectedModelId } = state;
   switch (stage) {
     case SEARCH:
       const { makes, models } = props;
@@ -38,10 +39,9 @@ const getRenderProps = (stage, props, state, methods = {}) => {
         handleMakesChange,
         handleModelsChange,
         handleClick: search,
-        hasSelectedMakeId: selectedMakeId !== ''
+        hasSelectedMakeId: selectedModelId !== ''
       };
     case REDIRECT:
-      const { selectedModelId } = state;
       return { selectedModelId };
     default:
       return {};
@@ -62,6 +62,7 @@ class SearchContainer extends Component {
 
   handleMakesChange = ({ target: { value } }) => {
     this.setState(updateSelectedMakeId(value));
+    this.setState(resetSelectedModelId);
   };
 
   handleModelsChange = ({ target: { value } }) => {

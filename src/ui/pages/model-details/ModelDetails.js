@@ -1,18 +1,18 @@
 import React from 'react';
-import CenteredContainer from '../../components/CenteredContainer/CenteredContainer';
 import { formattedMoney } from '../../../helpers/formatters';
+import Hero from '../../components/Hero/Hero';
+import './ModelDetails.css';
 
 const ModelDetails = ({
   car: { imageUrl = '', name = '', price = '', make = '' }
 }) => (
-  <CenteredContainer>
-    <div>
-      <img src={imageUrl} />
+  <Hero imageUrl={imageUrl}>
+    <div className={'Model-details__text flex justify-around'}>
+      <p>{name}</p>
+      <p>{make}</p>
+      <p>{`$${formattedMoney(price)}`}</p>
     </div>
-    <div>{name}</div>
-    <div>{make}</div>
-    <div>{`$${formattedMoney(price)}`}</div>
-  </CenteredContainer>
+  </Hero>
 );
 
 export default ModelDetails;

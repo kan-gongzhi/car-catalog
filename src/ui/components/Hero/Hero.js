@@ -6,7 +6,7 @@ const Hero = ({ imageUrl, children }) => (
   <div className={'Hero'}>
     <Image src={imageUrl} className={'Hero__Image'} />
     <div className={'Hero_Text-holder-container flex items-center justify-end'}>
-      <div className={'Hero__Text-holder flex items-center'}>{children}</div>
+      <div className={'Hero__Text-holder flex items-center flex-column'}>{children}</div>
     </div>
   </div>
 );
