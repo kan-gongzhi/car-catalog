@@ -1,0 +1,32 @@
+@import '../../../styles/mediaMixin.scss';
+
+.Hero {
+  position: relative;
+  height: calc(100vh - 85px);
+}
+
+.Hero__Image {
+  height: 100%;
+}
+
+.Hero_Text-holder-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+
+  @include md {
+    padding: 20px;
+  }
+}
+
+.Hero__Text-holder {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  color: #fff;
+  height: 100%;
+
+  @include md {
+    width: 50%;
+    height: auto;
+  }
+}

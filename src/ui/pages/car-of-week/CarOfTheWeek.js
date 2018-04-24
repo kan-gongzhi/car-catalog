@@ -1,18 +1,19 @@
 import React from 'react';
 import { formattedMoney } from '../../../helpers/formatters';
-import CenteredContainer from '../../components/CenteredContainer/CenteredContainer';
+import './carOfTheWeek.css';
+import Hero from '../../components/Hero/Hero';
 
-const CarOfTheWeek = ({ car: { imageUrl, name, review, price } }) => (
-  <CenteredContainer>
-    <div>
-      <img src={imageUrl} />
+const CarOfTheWeek = ({ car: { imageUrl, name, review, price, makeName } }) => (
+  <Hero imageUrl={imageUrl}>
+    <div className={'flex justify-center Car-of-the-week__car-details'}>
+      <p>{name}</p>
+      <p>{makeName}</p>
+      <p>{`$${formattedMoney(price)}`}</p>
     </div>
-    <div>{name}</div>
     <blockquote className={'Car-of-the-week__container'}>
       <q>{review}</q>
     </blockquote>
-    <div>{`$${formattedMoney(price)}`}</div>
-  </CenteredContainer>
+  </Hero>
 );
 
 export default CarOfTheWeek;

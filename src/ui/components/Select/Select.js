@@ -1,8 +1,9 @@
 import React from 'react';
+import './Select.css';
 
-const Select = ({ options, handleOnChange }) => (
-  <select onChange={handleOnChange}>
-    <option value="">{''}</option>
+const Select = ({ options, handleOnChange, placeholder = '' }) => (
+  <select onChange={handleOnChange} className={'Select'}>
+    <option value="">{placeholder}</option>
     {options.map(({ id, name }) => (
       <option value={id} key={id}>
         {name}

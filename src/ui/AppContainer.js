@@ -14,7 +14,7 @@ export const CARS_OF_THE_WEEK_URL = buildUrl('carOfTheWeek');
 export const MAKES_URL = buildUrl('makes');
 export const MODELS_URL = buildUrl('models');
 
-class SearchContainer extends Component {
+class AppContainer extends Component {
   componentDidMount() {
     const {
       fetchAndHandleAjax,
@@ -63,5 +63,5 @@ export const mapDispatchToProps = dispatch =>
   );
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(SearchContainer)
+  connect(mapStateToProps, mapDispatchToProps)(AppContainer)
 );

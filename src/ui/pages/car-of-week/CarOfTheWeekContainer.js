@@ -16,12 +16,16 @@ class CarOfWeekContainer extends Component {
 export const mapStateToProps = ({ carOfTheWeek, models, makes }) => {
   const { modelId, review } = carOfTheWeek;
   const model = getModelById(modelId)({ models }) || {};
-  const make = getMakeById(model.makeId)({ makes });
+  const make = getMakeById(model.makeId)({ makes }) || {};
+  const { name, price, imageUrl } = model;
+  const { name: makeName } = make;
   return {
     car: {
       review,
-      ...model,
-      ...make
+      name,
+      price,
+      makeName,
+      imageUrl
     }
   };
 };
