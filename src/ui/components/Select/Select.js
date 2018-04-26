@@ -2,7 +2,7 @@ import React from 'react';
 import './Select.css';
 
 const Select = ({
-  options,
+  options=[],
   handleOnChange,
   placeholder = '',
   className = '',

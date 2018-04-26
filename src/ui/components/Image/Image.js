@@ -1,14 +1,11 @@
 import React from 'react';
 import './Image.css';
 
-const Image = ({ src, className = '', errorImage = null }) => (
-  <img
-    src={src}
-    className={`Image ${className}`}
-    onError={e => {
-      e.target.src = errorImage || 'http://via.placeholder.com/350x150';
-    }}
-  />
+export const handleError = e => {
+  e.target.src = 'http://via.placeholder.com/350x150';
+};
+const Image = ({ src, className = '' }) => (
+  <img src={src} className={`Image ${className}`} onError={handleError} />
 );
 
 export default Image;

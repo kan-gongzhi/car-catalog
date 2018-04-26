@@ -10,11 +10,11 @@ import { saveModels } from '../redux/models';
 import { withRouter } from 'react-router-dom';
 
 export const buildUrl = url => `${process.env.PUBLIC_URL}/mock/${url}.json`;
-export const CARS_OF_THE_WEEK_URL = buildUrl('carOfTheWeek');
-export const MAKES_URL = buildUrl('makes');
-export const MODELS_URL = buildUrl('models');
+const CARS_OF_THE_WEEK_URL = buildUrl('carOfTheWeek');
+const MAKES_URL = buildUrl('makes');
+const MODELS_URL = buildUrl('models');
 
-class AppContainer extends Component {
+export class AppContainer extends Component {
   componentDidMount() {
     const {
       fetchAndHandleAjax,
