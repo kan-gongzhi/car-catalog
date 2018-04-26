@@ -5,11 +5,7 @@ import { connect } from 'react-redux';
 import { getModelById } from '../../../selectors/models';
 import { getMakeById } from '../../../selectors/makes';
 
-class CarOfWeekContainer extends Component {
-  render() {
-    return <CarOfTheWeek car={this.props.car} />;
-  }
-}
+export const CarOfWeekContainer = ({car}) => <CarOfTheWeek car={car} />;
 
 // connect to store
 /*************************************************************/
