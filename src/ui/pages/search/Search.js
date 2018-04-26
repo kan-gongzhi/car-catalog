@@ -2,10 +2,10 @@ import React from 'react';
 import Select from '../../components/Select/Select';
 import './Search.css';
 
-const Row = ({ children, className }) => (
+export const Row = ({ children, className }) => (
   <div className={`clearfix ${className}`}>{children}</div>
 );
-const Col = ({ children, className }) => (
+export const Col = ({ children, className }) => (
   <div className={`sm-col sm-col-6 Search__Col ${className}`}>{children}</div>
 );
 

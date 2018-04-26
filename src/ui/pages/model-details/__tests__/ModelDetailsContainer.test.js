@@ -3,20 +3,19 @@ import { shallow } from 'enzyme';
 import {
   mapDispatchToProps,
   mapStateToProps,
-  CarOfWeekContainer
-} from './CarOfTheWeekContainer';
+  ModelDetailsContainer
+} from '../ModelDetailsContainer';
 import configureMockStore from 'redux-mock-store';
 import { bindActionCreators } from 'redux';
 
-describe('<CarOfWeekContainer />', () => {
+describe('<ModelDetailsContainer />', () => {
   it('renders', () => {
-    shallow(<CarOfWeekContainer car={{}} />);
+    shallow(<ModelDetailsContainer car={{}} />);
   });
 });
 
 describe('redux connections', () => {
   it('mapStateToProps() returns a valid object', () => {
-    const carOfTheWeek = { modelId: 1, review: 'good' };
     const model = {
       id: 1,
       name: 'good car',
@@ -27,24 +26,21 @@ describe('redux connections', () => {
     const make = { id: 1, name: 'good make' };
     const makes = [make];
     const models = [model];
-    const car = {
-      review: carOfTheWeek.review,
-      name: model.name,
-      price: model.price,
-      makeName: make.name,
-      imageUrl: model.imageUrl
-    };
-    expect(mapStateToProps({ carOfTheWeek, models, makes })).toEqual({ car });
-    const failCarOTheWeek = { modelId: 2, review: 'good' };
+    const goodMatch = { params: { id: 1 } };
     expect(
-      mapStateToProps({ carOfTheWeek: failCarOTheWeek, models, makes })
+      mapStateToProps({ models, makes }, { match: goodMatch })
     ).toEqual({
       car: {
-        review: failCarOTheWeek.review,
-        imageUrl: undefined,
-        makeName: undefined,
-        name: undefined,
-        price: undefined
+        ...model,
+        make: make.name
+      }
+    });
+    const badMatch = { params: { id: 2 } };
+    expect(
+      mapStateToProps({ models, makes }, {match: badMatch})
+    ).toEqual({
+      car: {
+        make: undefined
       }
     });
   });

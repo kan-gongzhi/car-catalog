@@ -5,16 +5,20 @@ import Search from './Search';
 import { Redirect } from 'react-router-dom';
 // component helper
 /*************************************************************/
-const SEARCH = 'search';
-const REDIRECT = 'redirect';
-const updateSelectedMakeId = selectedMakeId => () => ({ selectedMakeId });
-const updateSelectedModelId = selectedModelId => () => ({ selectedModelId });
-const resetSelectedModelId = () => ({ selectedModelId: '' });
-const redirectStage = () => ({ stage: REDIRECT });
-const getModels = (selectedMakeId, models) =>
+export const SEARCH = 'search';
+export const REDIRECT = 'redirect';
+export const updateSelectedMakeId = selectedMakeId => () => ({
+  selectedMakeId
+});
+export const updateSelectedModelId = selectedModelId => () => ({
+  selectedModelId
+});
+export const resetSelectedModelId = () => ({ selectedModelId: '' });
+export const redirectStage = () => ({ stage: REDIRECT });
+export const getModels = (selectedMakeId, models) =>
   models.filter(model => model.makeId + '' === selectedMakeId);
 
-const renderer = (stage, props) => {
+export const renderer = (stage, props) => {
   switch (stage) {
     case SEARCH:
       return <Search {...props} />;
@@ -25,7 +29,7 @@ const renderer = (stage, props) => {
   }
 };
 
-const getRenderProps = (stage, props, state, methods = {}) => {
+export const getRenderProps = (stage, props, state, methods = {}) => {
   const { selectedModelId } = state;
   switch (stage) {
     case SEARCH:
@@ -51,7 +55,7 @@ const getRenderProps = (stage, props, state, methods = {}) => {
 
 // component
 /*************************************************************/
-class SearchContainer extends Component {
+export class SearchContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -89,7 +93,7 @@ class SearchContainer extends Component {
 
 // redux helper
 /*************************************************************/
-const getProcessedModels = models =>
+export const getProcessedModels = models =>
   models.map(({ id, makeId, name }) => ({
     id,
     makeId,

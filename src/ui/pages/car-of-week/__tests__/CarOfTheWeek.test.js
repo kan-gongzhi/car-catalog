@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CarOfTheWeek from './CarOfTheWeek';
+import CarOfTheWeek from '../CarOfTheWeek';
 
 describe('<CarOfTheWeek />', () => {
   it('renders', () => {
