@@ -5,11 +5,7 @@ import ModelDetails from './ModelDetails';
 import { getModelById } from '../../../selectors/models';
 import { getMakeById } from '../../../selectors/makes';
 
-class DetailContainer extends Component {
-  render() {
-    return <ModelDetails car={this.props.car} />;
-  }
-}
+export const ModelDetailsContainer = ({ car }) => <ModelDetails car={car} />;
 
 // connect to store
 /*************************************************************/
@@ -26,4 +22,6 @@ export const mapStateToProps = (
 
 export const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  ModelDetailsContainer
+);
