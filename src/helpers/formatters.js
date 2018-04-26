@@ -11,7 +11,7 @@ export const formattedMoney = amount => {
   return formattedReversedMoney.reverse().join('');
 };
 
-const getReversedStr = str =>
+export const getReversedStr = str =>
   str
     .split('')
     .reverse()
