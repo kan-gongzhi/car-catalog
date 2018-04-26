@@ -8,7 +8,7 @@
 Highlights:
 
 1.  React + Redux + React Router + SCSS
-2.  100% unit testing code coverage
+2.  100% unit test coverage
 
 ### Directory Layout
 
@@ -16,20 +16,22 @@ Highlights:
 ├── /node_modules/              # 3rd-party libraries and utilities
 ├── /public/                    # Public assets
 ├── /src/                       # Development work
-│   ├── /assets/                # Project assessible assets
 │   ├── /helpers/               # Project assessible assets
-│   │   ├── /ajax.js            # Generic ajax call interface
-│   │   ├── /helper.js          # General reusable util functions
-│   ├── /router/                # Define routes
-│   ├── /services/              # API services
+│   │   ├── /api.js             # Generic ajax call interface
+│   │   ├── /formatters.js      # number and test formatting helpers
+│   ├── /redux/                 # Redux stores
+│   ├── /selectors/             # redux store computed properties
+│   ├── /styles/                # shared scss files
 │   ├── /ui/                    # UI components
 │   │   ├── /components/        # Reusable components
 │   │   ├── /pages/             # Page specific components
-│   ├── /vuex/                  # vuex data store
-│   ├── /App.vue                # Application root component
-│   ├── /main.js                # Mount app, entry point
-├── .prettierrc                 # Code styling config
-│── README.md                   # This file that you are reading
+│   │   ├── /AppContainer.js    # App root component
+│   │   ├── /App.js             # root component template
+│   ├── /index.js               # App config
+│   ├── /index.scss             # App global styles
+├── .eslintrc                   # Coding style config
+├── .prettierrc                 # Code formatting config
+│── README.md                   # Readme file
 │── package.json                # The list of project dependencies and NPM
 ```
 
@@ -37,14 +39,21 @@ Highlights:
 
 ### Framework
 
-* Vue.js
-* Vuex
-* Vue-router
+* React.js
+* Redux
+* React-router
 
 ### 3rd Party Libs
 
-* autosize-input - **auto resize input**
+* reselect - **write reusable redux selectors**
+* thunk - **redux actions management**
 * basscss - **light weight low level css lib**
+
+### Testing
+
+* Jest
+* Enzyme
+* redux-mock-store
 
 ### Code Quality Control
 
@@ -58,20 +67,25 @@ This app requires [Node.js](https://nodejs.org/) v6+ to run.
 Clone or download this project.
 
 ```sh
-$ cd vue-email
+$ cd car-catalog
 $ npm install
-$ npm run serve
+$ npm start
 ```
 
-Go to browser: localhost:8080
+Go to browser: localhost:3000
+
+### Test Coverage Report
+
+```sh
+$ cd car-catalog
+$ npm test -- --coverage
+```
+
 
 ### Todos
 
-* Look & Feel and UX improvements, esp for mobile
-* Unit tests
-* Code refactor
-* Component reusabilities
-* Features: No Subject warning, edit existing email addresses, delete highlight candidate
+* Server side rendering
+* GraphQL
 
 ## License
 
