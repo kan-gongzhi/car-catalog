@@ -33,7 +33,7 @@ describe('actions', () => {
     expect(FETCH_FAILURE).toBe('@ajax/fetch-failure');
   });
 });
-// actions
+// action creators
 /*************************************************************/
 describe('action creators', () => {
   it('startFetching() returns a valid action', () => {

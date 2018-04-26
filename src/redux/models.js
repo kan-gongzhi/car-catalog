@@ -1,11 +1,11 @@
-const SAVE = '@models/save';
+export const SAVE = '@models/save';
 
 export const saveModels = models => ({
   type: SAVE,
   models
 });
 
-const initialState = [];
+export const initialState = [];
 
 const makes = (state = initialState, action) => {
   switch (action.type) {

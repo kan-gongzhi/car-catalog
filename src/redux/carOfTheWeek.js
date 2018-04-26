@@ -1,11 +1,11 @@
-const SAVE = '@car-of-the-week/save';
+export const SAVE = '@car-of-the-week/save';
 
 export const saveCarOfTheWeek = carOfTheWeek => ({
   type: SAVE,
   carOfTheWeek
 });
 
-const initialState = [];
+export const initialState = [];
 
 const carOfTheWeek = (state = initialState, action) => {
   switch (action.type) {
