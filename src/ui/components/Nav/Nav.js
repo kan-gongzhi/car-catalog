@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Nav.css';
 
 const Nav = ({ className='' }) => (
   <ul className={`Nav__list-unstyled flex ${className}`}>
     <li>
-      <Link to="/">Home</Link>
+      <NavLink to="/" exact>Home</NavLink>
     </li>
     <li>
-      <Link to="/search">search</Link>
+      <NavLink to="/search">search</NavLink>
     </li>
   </ul>
 );

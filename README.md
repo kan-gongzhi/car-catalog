@@ -1,3 +1,84 @@
+# Car Catalog
+
+[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
+
+[Live demo](https://this-is-demo-only.firebaseapp.com)
+
+
+Highlights:
+
+1.  React + Redux + React Router + SCSS
+2.  100% unit testing code coverage
+
+### Directory Layout
+
+```shell
+├── /node_modules/              # 3rd-party libraries and utilities
+├── /public/                    # Public assets
+├── /src/                       # Development work
+│   ├── /assets/                # Project assessible assets
+│   ├── /helpers/               # Project assessible assets
+│   │   ├── /ajax.js            # Generic ajax call interface
+│   │   ├── /helper.js          # General reusable util functions
+│   ├── /router/                # Define routes
+│   ├── /services/              # API services
+│   ├── /ui/                    # UI components
+│   │   ├── /components/        # Reusable components
+│   │   ├── /pages/             # Page specific components
+│   ├── /vuex/                  # vuex data store
+│   ├── /App.vue                # Application root component
+│   ├── /main.js                # Mount app, entry point
+├── .prettierrc                 # Code styling config
+│── README.md                   # This file that you are reading
+│── package.json                # The list of project dependencies and NPM
+```
+
+## Stack
+
+### Framework
+
+* Vue.js
+* Vuex
+* Vue-router
+
+### 3rd Party Libs
+
+* autosize-input - **auto resize input**
+* basscss - **light weight low level css lib**
+
+### Code Quality Control
+
+* Eslint
+* Prettier
+
+### Installation
+
+This app requires [Node.js](https://nodejs.org/) v6+ to run.
+
+Clone or download this project.
+
+```sh
+$ cd vue-email
+$ npm install
+$ npm run serve
+```
+
+Go to browser: localhost:8080
+
+### Todos
+
+* Look & Feel and UX improvements, esp for mobile
+* Unit tests
+* Code refactor
+* Component reusabilities
+* Features: No Subject warning, edit existing email addresses, delete highlight candidate
+
+## License
+
+MIT
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
